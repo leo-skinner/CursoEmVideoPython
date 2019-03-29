@@ -1,0 +1,66 @@
+# Cores no terminal
+# Padrão ANSI sempre inicia com \033[<style; texto; bkg m
+# \033[0 ; 33 ; 44 m
+from time import sleep
+print('')
+print('+-'*25)
+print('Códigos ANSI mais utilizáveis no Python')
+print('+-'*25)
+print('')
+sleep(1)
+print('\033[1m Estilo:')
+print('\033[0m 0 - Sem estilo')
+print('\033[1m 1 - Negrito')
+print('\033[4m 4 - Sublinhado')
+print('\033[7m 7 - Negativo (inverte o estilo com o bkg')
+sleep(1)
+print('\033[0m')
+print('\033[1m Cores:')
+print('')
+print('\033[30m 30 - branco')
+print('\033[31m 31 - Vermelho')
+print('\033[32m 32 - Verde')
+print('\033[33m 33 - Amarelo')
+print('\033[34m 34 - Azul')
+print('\033[35m 35 - Magenta')
+print('\033[36m 36 - Ciano')
+print('\033[370m 37 - Cinza')
+sleep(1)
+print('\033[0m')
+print('\033[1m Cores de fundo (Bkg):')
+print('\033[31;40m 40 - branco')
+print('\033[30;41m 41 - Vermelho')
+print('\033[30;42m 42 - Verde')
+print('\033[30;43m 43 - Amarelo')
+print('\033[30;44m 44 - Azul')
+print('\033[30;45m 45 - Magenta')
+print('\033[30;46m 46 - Ciano')
+print('\033[30;47m 47 - Cinza')
+print('\033[m')
+sleep(1)
+print('')
+print('\033[1;31m Exemplos:')
+print('')
+sleep(1)
+print('\033[1;31;43m Olá mundo! - Note que o fundo continua.')
+print('\033[1;31;43m Olá mundo! - Termina no fim da frase\033[0m')
+print('\033[7;31;43m Olá mundo! - usando a inversão...\033[0m')
+
+a = input('\033[1;31mDigite um valor para A: ')
+b = input('\033[1;34mDigite um valor para B:')
+print('\033[0mOs valores são \033[31m{} \033[me \033[34m{}'.format(a, b))
+print('')
+print('{}Utilizando o .Format para manipular cores...{}'.format('\033[1;31m','\033[m'))
+nome = input('{}Digite seu nome: '.format('\033[30m'))
+print('Olá {}{}{}! Muito prazer em te conhecer!'.format('\033[35m',nome,'\033[m'))
+sleep(1)
+print('')
+print('\033[1;30m Usando um dicionário...')
+
+#Criando um dicionário de cores...
+cores = {
+        'limpa':'\033[m',
+        'vermelho':'\033[31m',
+        'azul':'\033[34m'
+        }
+print('Olá {}{}{}! Tudo bem?'.format(cores['azul'],nome,cores['limpa']))
